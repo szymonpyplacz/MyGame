@@ -1,9 +1,4 @@
 package com.mygame.samples;
-
-import java.awt.*;
-import java.util.*;
-import java.util.List;
-
 public class Settler{
     boolean isFree = true;
     public void setFree(){
