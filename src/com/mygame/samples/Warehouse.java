@@ -78,4 +78,15 @@ public class Warehouse extends Building {
     public String getAllInfo() {
         return (name + "<br>wood: " + wood + "<br>stone: " + stone + "<br>corn: " + corn + "<br>total capacity: " + (wood + stone + corn) + "/" + totalCapacity);
     }
+
+    public boolean getHunger(){
+        return hunger;
+    }
+
+    public boolean endGame(){
+        if(corn >= 10 && wood >= 20 && stone >= 15)
+            return true;
+        else
+            return false;
+    }
 }

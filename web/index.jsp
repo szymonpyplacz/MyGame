@@ -14,6 +14,5 @@
   <form method="post" action="/play.jsp">
     <input value="countinue" type="submit"/>
   </form>
-
   </body>
 </html>

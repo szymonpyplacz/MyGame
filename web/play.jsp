@@ -31,11 +31,24 @@
         timer = (Timer) session.getAttribute("timer");
         underBuiling[0] = (int) session.getAttribute("underBuilt");
     }
-    String textBox = ("Welcome Lord " + session.getAttribute("savedUserName"));
-
-%>
-
+    String textBox;
+    if(warehouse.getHunger()){
+        textBox = ("Your people died, you were a bad lord,");
+        out.print(textBox);%>
+    <br>
+    <a href="index.jsp">try again</a>
 <%
+    }
+    else if (warehouse.endGame()){
+        textBox = ("Great victory, lord");
+        out.print(textBox);%>
+<br>
+<a href="index.jsp">would you play again</a>
+<%
+    }
+    else {
+        textBox = ("Welcome Lord " + session.getAttribute("savedUserName"));
+
     for (int i = 0; i<EconomicalbuildingsList.size(); i++){
         if(request.getParameter("stopProduction" + i) != null)
             EconomicalbuildingsList.get(i).changeProduction();
@@ -192,6 +205,7 @@ out.print(EconomicalbuildingsList.get(i).getAllInfo());
     session.setAttribute("settlersList", settlersList);
     session.setAttribute("underBuilt", underBuiling[0]);
     out.close();
+    }
 %>
 
 
